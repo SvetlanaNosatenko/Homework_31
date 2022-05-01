@@ -1,6 +1,4 @@
 import pytest
-
-from ads.serializers import AdsSerializer
 from factories import AdsFactory
 
 
@@ -8,26 +6,27 @@ from factories import AdsFactory
 def test_list_ads(client):
     ads = AdsFactory.create_batch(10)
 
-    response = client.get("/ads/")
+    response = client.get("/ad/")
+
     ads_list = []
     for ad in ads:
-        ads.append(
+        ads_list.append(
             {
                 "id": ad.id,
                 "name": ad.name,
-                "author_id": ad.author_id,
-                "author": ad.author.first_name,
-                "price": ad.price,
+                "author_id": ad.author_id_id,
+                "author": ad.author_id.first_name,
                 "description": ad.description,
                 "is_published": ad.is_published,
-                "image": ad.image.url,
-                "category_id": ad.category_id
+                "image": ad.image,
+                "category_id": ad.category_id_id,
+                "price": ad.price
             }
         )
 
     expected_response = {
         "items": ads_list,
-        "num_page": 1,
+        "num_pages": 1,
         "total": 10
     }
 

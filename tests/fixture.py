@@ -10,7 +10,7 @@ def hr_token(client, django_user_model):
     django_user_model.objects.create_user(
         username=username,
         password=password,
-        role="hr"
+        role="admin"
     )
     response = client.post(
         "/user/token/",

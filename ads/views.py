@@ -92,6 +92,11 @@ class AdsView(ListView):
                         "name": ad.name,
                         "price": ad.price,
                         "author": ad.author_id.first_name,
+                        "description": ad.description,
+                        "image": ad.image.url if ad.image else None,
+                        "is_published": ad.is_published,
+                        "category_id": ad.category_id_id,
+                        "author_id": ad.author_id_id,
                         })
         response = {
             "items": ads,
