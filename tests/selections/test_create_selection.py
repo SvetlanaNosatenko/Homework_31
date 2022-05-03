@@ -10,7 +10,7 @@ def test_create_selection(client, hr_token, user, ads):
         "ad": [ads.id]
     }
     data = {
-        "name": "name_test",
+        "name": "name",
         "owner": user.id,
         "ad": [ads.id]
     }
