@@ -44,7 +44,7 @@ class SelectionCreateSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Selection
-        fields = ["name", "owner", "ad"]
+        fields = "__all__"
 
 
 class SelectionUpdateSerializer(serializers.ModelSerializer):

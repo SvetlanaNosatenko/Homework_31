@@ -12,7 +12,7 @@ from rest_framework.permissions import IsAuthenticated
 from ads.models import Ads, Categories, User, Selection
 from ads.permissions import AdsPermission
 from ads.serializers import AdsSerializer, SelectionListSerializer, SelectionDetailSerializer, \
-    SelectionDeleteSerializer, SelectionUpdateSerializer, CategoriesListSerializer
+    SelectionDeleteSerializer, SelectionUpdateSerializer, CategoriesListSerializer, SelectionCreateSerializer
 from homework_27 import settings
 
 
@@ -28,7 +28,7 @@ class SelectionDetailView(RetrieveAPIView):
 
 class SelectionCreateView(CreateAPIView):
     queryset = Selection.objects.all()
-    serializer_class = SelectionListSerializer
+    serializer_class = SelectionCreateSerializer
 
 
 class SelectionDeleteView(DestroyAPIView):

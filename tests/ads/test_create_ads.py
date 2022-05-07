@@ -5,7 +5,7 @@ import pytest
 def test_create_ads(client, user, categories, hr_token):
 
     expected_response = {
-        "id": 1,
+        "id": 2,
         "name": "name_number_1",
         "author_id": user.id,
         "price": 20,
